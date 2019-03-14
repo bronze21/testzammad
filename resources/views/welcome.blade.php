@@ -106,7 +106,8 @@
                                 show: false,
                                 target: $('.form'),
                                 name: cooks.ttk+" | "+cooks.area,
-                                dataChat: cooks
+                                dataChat: cooks,
+                                greeting: 'Selamat datang di Layanan Chat Wahana Express.<br>Wilayah :<br>'+area
                             });
                             setTimeout(() => {
                                 $('.open-zammad-chat').click();
@@ -126,7 +127,8 @@
                                 show: true,
                                 target: $('.form'),
                                 name: cooks.ttk+" | "+cooks.area,
-                                dataChat: cooks
+                                dataChat: cooks,
+                                greeting: 'Selamat datang di Layanan Chat Wahana Express.<br>Wilayah :<br>'+area
                             });
                             setTimeout(() => {
                                 $('.js-chat-open').click();
