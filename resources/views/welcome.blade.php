@@ -74,8 +74,10 @@
                     {
                         hash = MD5(nama+ttk);
                         console.log(hash);
-                        data = {nama, email, ttk, area};
-                        setCookie(hash,data,1);
+                        setTimeout(() => {
+                            // alert('terhapus');
+                            eraseCookie(hash);
+                        }, 1000);
                     }
                 });
                 $('.open-chat').on('click',function(){
@@ -86,6 +88,8 @@
                     }
                     else
                     {
+                        data = {nama, email, ttk, area};
+                        setCookie(hash,data,1);
                         cooks = JSON.parse(getCookie(hash));
                         // chatshow = true;
                         // alert(hash);
@@ -130,6 +134,14 @@
                         }
                     }
                 });
+                window.onbeforeunload = function(event)
+                {
+                    // return confirm("Confirm refresh");
+                    if(zc)
+                    {
+                        zc.close();
+                    }
+                };
                 function setCookie(name,value,days) {
                     var expires = "";
                     if (days) {
@@ -150,7 +162,7 @@
                     return null;
                 }
                 function eraseCookie(name) {   
-                    document.cookie = name+'=; Max-Age=-99999999;';  
+                    document.cookie = name+'=""; Max-Age=-99999999;';  
                 }
             });
         </script>
